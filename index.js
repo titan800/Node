@@ -4,6 +4,7 @@ const app = express();
 const fs = require("fs");
 const ffmpeg = require("fluent-ffmpeg");
 const { MongoClient } = require("mongodb");
+var ip = require('ip');
 var cors = require("cors");
 const mongoose = require("mongoose");
 const Movies = require("./models/movies");
@@ -319,4 +320,5 @@ app.get("/db", function (req, res) {
 
 app.listen(process.env.PORT || 8000, function () {
   console.log("Listening on port 8000!");
+  console.log(ip.address());
 });
